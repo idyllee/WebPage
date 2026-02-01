@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Meine erste Website</title>
+
+    <style>
+
+        /* =====================
+           ALLGEMEINE STYLES
+        ====================== */
+
+        body {
+            background-color: #e8f1ff;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333333;
+            margin: 20px;   /* ✅ wieder wie vorher */
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #2c3e90;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        /* =====================
+              BOX STYLES
+        ====================== */
+
+        .box {
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* =====================
+           FARBEN DER BOXEN
+        ====================== */
+
+        .banner { background-color: #cfe2ff; }
+        .todo   { background-color: #fff3cd; }
+        .games  { background-color: #d1f7c4; }
+        .food   { background-color: #ffe0e0; }
+        .music  { background-color: #e5d9ff; }
+
+        /* =====================
+             BANNER BILD
+        ====================== */
+
+        .banner-img {
+            width: 100%;
+            height: auto;        /* ✅ kein Abschneiden */
+            border-radius: 10px;
+            display: block;      /* kein weißer Rand */
+            margin-bottom: 10px;
+        }
+
+        /* =====================
+               TODO
+        ====================== */
+
+        .todo-item {
+            margin: 8px 0;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        /* =====================
+            FLEX BOXEN
+        ====================== */
+
+        .flex-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .flex-row .box {
+            flex: 1;
+        }
+
+        @media (max-width: 800px) {
+            .flex-row {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== BANNER (WIE VORHER) ===== -->
+    <div class="box banner">
+
+        <img src="banner3.jpeg" alt="Schulbanner – Lernen macht Spaß" class="banner-img">
+
+        <h1>Willkommen auf meiner Website!</h1>
+        <p><strong>Mein Spruch:</strong> Jeder Tag ist ein guter Tag zum Lernen!</p>
+
+    </div>
+
+    <!-- ===== TODO LIST ===== -->
+    <div class="box todo">
+        <h2>Meine To-Do-Liste</h2>
+
+        <div class="todo-item">
+            <input type="checkbox" onchange="toggleDone(this)">
+            Mathe-Hausaufgaben machen
+        </div>
+
+        <div class="todo-item">
+            <input type="checkbox" onchange="toggleDone(this)">
+            Lesen üben
+        </div>
+
+        <div class="todo-item">
+            <input type="checkbox" onchange="toggleDone(this)">
+            Zimmer aufräumen
+        </div>
+
+        <div class="todo-item">
+            <input type="checkbox" onchange="toggleDone(this)">
+            An meiner Website arbeiten
+        </div>
+    </div>
+
+    <!-- ===== FAVORITEN ===== -->
+    <div class="flex-row">
+
+        <div class="box games">
+            <h2>Meine Lieblingsspiele</h2>
+            <ul>
+                <li>🧱 Minecraft</li>
+                <li>🏎️ Mario Kart</li>
+                <li>⚽ FIFA</li>
+                <li>🤖 Roblox</li>
+            </ul>
+        </div>
+
+        <div class="box food">
+            <h2>Meine Lieblingsessen</h2>
+            <ul>
+                <li>🍕 Pizza</li>
+                <li>🍝 Pasta</li>
+                <li>🥞 Pfannkuchen</li>
+                <li>🥙 Döner</li>
+            </ul>
+        </div>
+
+        <!-- Lieblingslieder (Variante 2: externer Link) -->
+        <div class="box music">
+            <h2>Meine Lieblingslieder</h2>
+        
+            <ul>
+            <li>
+                🎶
+                <a href="https://www.youtube.com/watch?v=ylTZFaW6LMI&list=RDEY9Envs1mWM&index=5" target="_blank" rel="noopener noreferrer">
+                Ich renn nicht mehr weg
+                </a>
+            </li>
+            </ul>
+
+            <ul>
+                <li>
+                    🎶
+                    <a href="https://www.youtube.com/watch?v=txKSCB6zOlY&list=RDEY9Envs1mWM&index=3" target="_blank" rel="noopener noreferrer">
+                    Sei wie du bist!
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    🎶
+                    <a href="https://www.youtube.com/watch?v=9GgXKOy2Y8s&list=RDEY9Envs1mWM&index=5" target="_blank" rel="noopener noreferrer">
+                    Halt, das ist unser Wald
+                    </a>
+                </li>
+            </ul>
+        </div>
+  
+
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        function toggleDone(checkbox) {
+            const todoText = checkbox.parentElement;
+
+            if (checkbox.checked) {
+                todoText.classList.add("done");
+            } else {
+                todoText.classList.remove("done");
+            }
+        }
+    </script>
+
+</body>
+</html>
